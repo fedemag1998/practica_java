@@ -1,0 +1,7 @@
+
+[
+{"producto": "Intel i5", "precio": 29000, "id": "1"},
+{"producto": "Intel i7", "precio": 35000, "id": "2"},
+{"producto": "Ryzen 5", "precio": 23000, "id": "3"},
+{"producto": "Ryzen 7", "precio": 28000, "id": "4"}
+]

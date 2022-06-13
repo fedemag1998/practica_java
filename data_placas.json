@@ -1,0 +1,6 @@
+[
+    {"producto": "RTX 2060", "precio": 29000, "id": "1"},
+    {"producto": "RTX 3060", "precio": 35000, "id": "2"},
+    {"producto": "RTX 3080", "precio": 23000, "id": "3"},
+    {"producto": "RX 550", "precio": 18000, "id": "4"}
+]
