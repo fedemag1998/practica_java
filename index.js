@@ -14,7 +14,7 @@ const suma = (a,b,c) => a+b+c;
 const clave = [];
 /* Importacion de informacion de los archivos JSON */
 
-
+totall=0;
 var listadoProcesador = [];
 var listadoMother = [];
 var listadoPlaca = [];
