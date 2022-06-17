@@ -6,6 +6,7 @@ const suprimir = (constante,eliminar) => {
     }
 }
 
+
 const arrayTotal = []; 
 const procesadorCompra = [];
 const multiplicacion = (a,b) => a*b;
@@ -74,6 +75,9 @@ let contenedor8 = document.createElement("article");
                 padre6.append(div);
             });
           });document.body.appendChild(contenedor8);
+
+/* Variables del carrito declaradas */
+
 let procesadorComp= 1;
 let changoParse;
 let chango;
@@ -83,6 +87,17 @@ let motherComp= 1;
 let cantidadMother=0;
 let placaComp= 1;
 let cantidadPlaca=0;
+let total=0; let total1=0; let total2=0; let total3=0;
+let total1Viejo; let total2Viejo; let total3Viejo;
+let total1ViejoParse; let total2ViejoParse; let total3ViejoParse;
+let totalProcesadoresNuevo; let totalMothersNuevo; let totalPlacasNuevo;
+
+/* Cargo el carrito antes para prevenir errores */
+
+chango = localStorage.getItem("carrito");
+    changoParse= JSON.parse(chango);
+    changoTotal =suma(changoParse,total,0)
+    localStorage.setItem("carrito",changoTotal)
 
 /* Listado de productos con sus respectivas opciones y cantidades a introducir */
 
@@ -94,47 +109,57 @@ function myFunction()
     let cantidadMother = document.getElementById("cantidadMother").value;
     let placaComp = document.getElementById("placa").value;
     let cantidadPlaca = document.getElementById("cantidadPlaca").value;
-    let total=0;
-    let total1=0;
-    let total2=0;
-    let total3=0;
-          if(procesadorComp==0)
-          {
-            procesadorComp=1;
-          }
-          if(motherComp==0)
-          {
-            motherComp=1;
-          }
-          if(placaComp==0)
-          {
-            placaComp=1;
-          }
-    total1= multiplicacion(listadoProcesador[procesadorComp-1].precio,cantidadProcesador);
+    if(procesadorComp==0)
+    {
+      procesadorComp=1;
+    }
+    if(motherComp==0)
+    {
+      motherComp=1;
+    }
+    if(placaComp==0)
+    {
+     placaComp=1;
+    }    
+     total1= multiplicacion(listadoProcesador[procesadorComp-1].precio,cantidadProcesador);
+    total1Viejo = localStorage.getItem("Total Procesadores");
+    total1ViejoParse= JSON.parse(total1Viejo);
+    totalProcesadoresNuevo =suma(total1ViejoParse,total1,0)
+    localStorage.setItem("Total Procesadores",totalProcesadoresNuevo)
     total2= multiplicacion(listadoMother[motherComp-1].precio,cantidadMother);
+    total2Viejo = localStorage.getItem("Total Mothers");
+    total2ViejoParse= JSON.parse(total2Viejo);
+    totalMothersNuevo =suma(total2ViejoParse,total2,0)
+    localStorage.setItem("Total Mothers",totalMothersNuevo)
     total3= multiplicacion(listadoPlaca[placaComp-1].precio,cantidadPlaca);
+    total3Viejo = localStorage.getItem("Total Placas");
+    total3ViejoParse= JSON.parse(total3Viejo);
+    totalPlacasNuevo =suma(total3ViejoParse,total3,0)
+    localStorage.setItem("Total Placas",totalPlacasNuevo)
     total=suma(total1,total2,total3)
     let resultadoProcesador = document.createElement("div");
-    resultadoProcesador.innerHTML = `<h3> El costo total en procesadores es de: $${total1}<h3>`;  
+    resultadoProcesador.innerHTML = `<h3> El costo total en procesadores es de: $${totalProcesadoresNuevo}<h3>`;  
     document.body.appendChild(resultadoProcesador);
     let resultadoMother = document.createElement("div");
-    resultadoMother.innerHTML = `<h3> El costo total en motherboards es de: $${total2}<h3>`;  
+    resultadoMother.innerHTML = `<h3> El costo total en motherboards es de: $${totalMothersNuevo}<h3>`;  
     document.body.appendChild(resultadoMother); 
     let resultadoPlaca = document.createElement("div");
-    resultadoPlaca.innerHTML = `<h3> El costo total en placas de video es de: $${total3}<h3>`;  
+    resultadoPlaca.innerHTML = `<h3> El costo total en placas de video es de: $${totalPlacasNuevo}<h3>`;  
     document.body.appendChild(resultadoPlaca); 
-    let resultadoTotal = document.createElement("div");
-    resultadoTotal.innerHTML = `<h3> El costo total de su compra es de: $${total}<h3>`;  
-    document.body.appendChild(resultadoTotal);  
     chango = localStorage.getItem("carrito");
     changoParse= JSON.parse(chango);
     changoTotal =suma(changoParse,total,0)
     localStorage.setItem("carrito",changoTotal)
-    let guardarStorage =(clave, valor) => 
+    let resultadoTotal = document.createElement("div");
+    resultadoTotal.innerHTML = `<h3> El costo total de su compra es de: $${changoTotal}<h3>`;  
+    document.body.appendChild(resultadoTotal); 
+/*     let guardarStorage =(clave, valor) => 
       {
         localStorage.setItem(clave,valor);
       }
       localStorage.setItem("procesadorComprado",JSON.stringify(listadoProcesador[procesadorComp-1]));
+      localStorage.setItem("cantidadProcesadorComprado",cantidadProcesador);
+       */
   }
 
 /* Funcion de guardado del carrito */
@@ -186,6 +211,8 @@ function myFunction3()
               localStorage.removeItem("carrito")
               localStorage.removeItem("listadoProcesador")
               localStorage.clear();
+              changoTotal=0;
+
             } else if (result.dismiss === Swal.DismissReason.cancel){
               swalWithBootstrapButtons.fire(
                 'Cancelado',
@@ -196,4 +223,22 @@ function myFunction3()
           })
         document.body.appendChild(carritoContenedor);
         }
+    }
+
+  function myFunction4() 
+    {
+      let carritoContenedor4 = document.createElement("div");
+      if(changoTotal==null)
+      {
+      carritoContenedor4.innerHTML = `<h3> Su carrito esta vacio actualmente<h3>`;  
+      document.body.appendChild(carritoContenedor4);
+      }
+      if(changoTotal==0){
+        carritoContenedor4.innerHTML = `<h3> Su carrito esta vacio actualmente<h3>`;  
+      document.body.appendChild(carritoContenedor4);
+      }
+      if(changoTotal!=0){
+        carritoContenedor4.innerHTML = `<h3> Su carrito es de: $${changoTotal}<h3>`;  
+        document.body.appendChild(carritoContenedor4);
+      }
     }
