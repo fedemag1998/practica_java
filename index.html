@@ -22,32 +22,46 @@
     <title>Compragamer</title>
 </head>
 <body>
-    <main class="container">
-    <section class="row">
+    <header>
+        <h1 class="header"> Compragamer </h1>
+    </header>
+    <main class="container-fluid">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <h1> Bienvenido a Compragamer </h1>
-    <div class="col-12" id="contenedor1"></div>
+    <section class="row">
+    <h2> Bienvenido! </h2>
+    <div class="col-12 titulos" id="contenedor1"></div>
     <div class="col-4 col-xxl-4" id=listado1></div>
-    <div class="col-2 col-xxl-2"><img src="imagenes/i5.jfif" width="125" height="150"alt="1151"></div>
-    <div class="col-2 col-xxl-2"><img src="imagenes/i7.jfif" width="125" height="150"alt="1151"></div>
-    <div class="col-2 col-xxl-2"><img src="imagenes/ryzen5.jpg" width="125" height="150"alt="1151"></div>
-    <div class="col-2 col-xxl-2"><img src="imagenes/ryzen7.jfif" width="125" height="150"alt="1151"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/i5.jfif" width="125" height="150"alt="i5"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/i7.jfif" width="125" height="150"alt="i7"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/ryzen5.jpg" width="125" height="150"alt="ryzen5"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/ryzen7.jfif" width="125" height="150"alt="ryzen7"></div>
     </section>
     <input id="procesador" type="number" placeholder="Opcion de Procesador">
     <input id="cantidadProcesador"  type="number" placeholder="Cantidad">
     <button onclick="myFunction()">Enviar</button>
     <br>
     <br>
-    <div id=contenedor2></div>
-    <div id=listado2></div>
+    <section class="row">
+    <div class="col-12 titulos" id=contenedor2></div>
+    <div class="col-3 col-xxl-3" id=listado2></div>
+    <div class="col-3 col-xxl-3"><img src="imagenes/1121.jpg" width="125" height="150"alt="1121"></div>
+    <div class="col-3 col-xxl-3"><img src="imagenes/1151.jfif" width="125" height="150"alt="1151"></div>
+    <div class="col-3 col-xxl-3"><img src="imagenes/amd.jpg" width="125" height="150"alt="amd"></div>
+    </section>  
     <input id="mother"  type="number" placeholder="Opcion de Motherboard">
     <input id="cantidadMother"  type="number" placeholder="Cantidad">
     <button onclick="myFunction()">Enviar</button>
     <br>
     <br>
-    <div id=contenedor3></div>
-    <div id=listado3></div>
+    <section class="row">
+    <div class="col-12  titulos" id=contenedor3></div>
+    <div class="col-4" id=listado3 ></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/RTX2060.jpg" width="125" height="150"alt="RTX2060"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/RTX3060.jpg" width="125" height="150"alt="RTX3060"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/RTX3080.jpg" width="125" height="150"alt="RTX3080"></div>
+    <div class="col-2 col-xxl-2"><img src="imagenes/RX550.jfif" width="125" height="150"alt="RX550"></div>
+    </section>
     <input id="placa"  type="number" placeholder="Opcion de Placa de video">
     <input id="cantidadPlaca"  type="number" placeholder="Cantidad">
     <button onclick="myFunction()">Enviar</button>

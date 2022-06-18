@@ -1,5 +1,19 @@
-#contenedor1{
+.titulos{
     background-color: white;
     min-width: min-content;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.header{
+    position: sticky;
+    background-color: rgb(239, 126, 12);
+    height: 100px;
+    min-width: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    
 }

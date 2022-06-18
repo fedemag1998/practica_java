@@ -58,7 +58,7 @@ let contenedor6 = document.createElement("article");
            .then((data) => {data.forEach((producto2) => {
                const div = document.createElement("div");
                div.innerHTML = `<p>${producto2.id}. ${producto2.producto} $${producto2.precio}</p>`;
-               padre3.append(div);
+               padre4.append(div);
            });
          }); document.body.appendChild(contenedor6);
 let padre5 = document.getElementById("contenedor3");
@@ -166,6 +166,17 @@ function myFunction()
 
 function myFunction2() 
     {
+      let carritoContenedor4 = document.createElement("div");
+      if(changoTotal==null)
+      {
+      carritoContenedor4.innerHTML = `<h3> Su carrito esta vacio actualmente<h3>`;  
+      document.body.appendChild(carritoContenedor4);
+      }
+      if(changoTotal==0){
+        carritoContenedor4.innerHTML = `<h3> Su carrito esta vacio actualmente<h3>`;  
+      document.body.appendChild(carritoContenedor4);
+      }
+      if(changoTotal!=0){
         let carritoContenedor2 = document.createElement("div");
         carritoContenedor2.innerHTML = `<h3> Su carrito es de: $${changoTotal}<h3>`;  
         Swal.fire({
@@ -176,6 +187,7 @@ function myFunction2()
             timer: 2500
           })
         document.body.appendChild(carritoContenedor2);
+      }
     }
 
 /* Funcion de vaciado del carrito */
@@ -224,6 +236,8 @@ function myFunction3()
         document.body.appendChild(carritoContenedor);
         }
     }
+
+    /* Funcion para mostrar el carrito actual */
 
   function myFunction4() 
     {
